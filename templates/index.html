@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Coronary Heart Disease(CHD) </h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	  
+        <!-- <input type="number" step="any" name="male" placeholder="Male" required="required" /> -->
+        <select name="male" >
+          <option value=1>Male</option>
+          <option value=0>Female</option>
+        </select>
+
+        <input type="number" step="any" name="age" placeholder="Age" required="required" />
+		    <input type="number" step="any" name="education" placeholder="Education" required="required" />
+        
+        <!-- <input type="number" step="any" name="currentSmoker" placeholder="Current Smoker" required="required" /> -->
+        <select name="currentSmoker" >
+          <option value=1>Current Smoker</option>
+          <option value=0>Not a current Smoker</option>
+        </select>
+        
+        <input type="number" step="any" name="cigsPerDay" placeholder="CigsPerDay" required="required" />
+        
+        <!-- <input type="number" step="any" name="BPMeds" placeholder="BPMEDS" required="required" /> -->
+        <select name="BPMeds" >
+          <option value=1>Currently taking BPMeds</option>
+          <option value=0>Not taking BPMeds</option>
+        </select>
+
+        <!-- <input type="number" step="any" name="prevalentStroke" placeholder="PrevalentStroke" required="required" /> -->
+        <select name="prevalentStroke" >
+          <option value=1>Have Stroke Prevalence</option>
+          <option value=0>No any history of Stroke</option>
+        </select>
+
+        <!-- <input type="number" step="any" name="prevalentHyp" placeholder="PrevalentHyp" required="required" /> -->
+        <select name="prevalentHyp" >
+          <option value=1>Have prevalentHyp</option>
+          <option value=0>No prevalentHyp</option>
+        </select>
+
+        <!-- <input type="number" step="any" name="diabetes" placeholder="Diabetes" required="required" /> -->
+        <select name="diabetes" >
+          <option value=1>Currently Diabetic</option>
+          <option value=0>Non-diabetic</option>
+        </select>
+        
+        <input type="number" step="any" name="totChol" placeholder="TotalChol" required="required" />
+        <input type="number" step="any" name="sysBP" placeholder="SysBP" required="required" />
+        
+        <input type="number" step="any" name="diaBP" placeholder="DiaBP" required="required" />
+        <input type="number" step="any" name="BMI" placeholder="BMI" required="required" />
+        <input type="number" step="any" name="heartRate" placeholder="HeartRate" required="required" />
+        <input type="number" step="any" name="glucose" placeholder="Glucose" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
